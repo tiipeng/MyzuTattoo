@@ -66,17 +66,18 @@
 </a>
 
 		</div>
-		<nav class="vlt-offcanvas-menu__navigation" >
-			<!--Navigation-->
-			<ul class="sf-menu">
-				<li data-menuanchor="Home"><a href="#Home">Home</a></li>
-				<li data-menuanchor="About me"><a href="#About me">About me</a></li>
-				<li data-menuanchor="Aftercare"><a href="#Aftercare">Prepare</a></li>
-				<li data-menuanchor="Skills"><a href="#Skills">Aftercare</a></li>
-				<li data-menuanchor="Portfolio"><a href="#Portfolio">Instagram</a></li>
-				<li data-menuanchor="Contact"><a href="#Contact">Booking</a></li>
-			</ul>
-		</nav>
+
+<nav class="vlt-offcanvas-menu__navigation">
+  <ul class="sf-menu">
+    <li data-menuanchor="Home"><a href="#Home">Home</a></li>
+    <li data-menuanchor="Services"><a href="#Services">About me</a></li> <!-- FIXED: Was "About me" instead of "Services" -->
+    <li data-menuanchor="Preparation"><a href="#Preparation">Prepare</a></li> <!-- FIXED: Was mismatched with "Aftercare" -->
+    <li data-menuanchor="Aftercare"><a href="#Aftercare">Aftercare</a></li>
+    <li data-menuanchor="Instagram"><a href="#Instagram">Instagram</a></li> <!-- FIXED: Was incorrectly "Portfolio" -->
+    <li data-menuanchor="Contact"><a href="#Contact">Booking</a></li>
+  </ul>
+</nav>
+
 		<div class="vlt-offcanvas-menu__footer">
 			<!--Socials-->
 			<div class="vlt-offcanvas-menu__socials"><a href="#" target="_blank">Fb.</a><a href="#" target="_blank">Bē.</a><a href="#" target="_blank">Tw.</a><a href="#" target="_blank">In.</a></div>
@@ -470,9 +471,7 @@ To book an appointment, you can contact me via direct message on Instagram. Plea
 										</div>
 										<div class="vlt-gap-30"></div>
 										
-										<div class="vlt-gap-40"></div><a class="vlt-btn vlt-btn--secondary" href="#"><span class="vlt-btn__text">Get direction</span><span class="vlt-btn__icon vlt-btn__icon--right"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin">
-													<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-													<circle cx="12" cy="10" r="3" /></svg></span></a>
+										<div class="vlt-gap-40"></div>
 									</div>
 									<div class="vlt-gap-70--sm"></div>
 								</div>
@@ -523,17 +522,15 @@ To book an appointment, you can contact me via direct message on Instagram. Plea
 				</div>
 			</div>
 			<!--Progress Bar-->
-			<ul class="vlt-fullpage-slider-progress-bar">
-				<li data-menuanchor="Home"></li>
-				<li data-menuanchor="About me"></li>
-				<li data-menuanchor="Experience"></li>
-				<li data-menuanchor="Skills"></li>
-				<li data-menuanchor="Portfolio"></li>
-				<li data-menuanchor="Awards"></li>
-				<li data-menuanchor="Testimonials"></li>
-				<li data-menuanchor="Blog"></li>
-				<li data-menuanchor="Contact"></li>
-			</ul>
+<ul class="vlt-fullpage-slider-progress-bar">
+  <li data-menuanchor="Home"></li>
+  <li data-menuanchor="Services"></li> <!-- FIXED: Was "About me" -->
+  <li data-menuanchor="Preparation"></li>
+  <li data-menuanchor="Aftercare"></li>
+  <li data-menuanchor="Instagram"></li> <!-- FIXED: Was "Portfolio" -->
+  <li data-menuanchor="Contact"></li> <!-- Removed unused: Awards, Testimonials, Blog -->
+</ul>
+
 			<!--Numbers-->
 			<div class="vlt-fullpage-slider-numbers"></div>
 		</div>
