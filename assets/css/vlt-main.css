@@ -3176,12 +3176,10 @@ body .pp-scrollable
 
 /* Text und Abstand */
 .vlt-services__text {
-  text-align: center;
   padding: 0 12px;
 }
 
 .vlt-animated-block h4 {
-  text-align: center;
 }
 
 /* Responsive Anpassung für kleine Screens */
