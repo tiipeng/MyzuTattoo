@@ -3173,12 +3173,6 @@ body .pp-scrollable
   transform: scale(1.03);
 }
 
-/* Optional: Text zentrieren */
-.vlt-services__text {
-  text-align: center;
-  padding: 0 12px;
-}
-
 /* Optional: Abstand auf kleineren Screens vergrößern */
 @media (max-width: 576px) {
   .gallery-grid {
