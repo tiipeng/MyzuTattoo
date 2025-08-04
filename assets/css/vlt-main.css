@@ -1762,8 +1762,8 @@ select:focus::-webkit-input-placeholder
 }
 .vlt-fullpage-slider-numbers
 {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.00rem;
+    font-weight: 600;
 
     position: fixed;
     z-index: 25; 
@@ -1776,13 +1776,13 @@ select:focus::-webkit-input-placeholder
     display:         flex;
             flex-direction: column;
 
-    width: 6.25rem;
-    height: 6.25rem;
+    width: 4.25rem;
+    height: 4.25rem;
 
     letter-spacing: -.01em;
 
     color: #fff;
-    border-top-left-radius: 8px;
+    border-top-left-radius: 6px;
     background-color: #101010;
 
     -webkit-box-align: center;
