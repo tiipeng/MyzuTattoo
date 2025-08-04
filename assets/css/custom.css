@@ -1,10 +1,11 @@
+/* Desktop: 3 Spalten */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  padding: 0 8px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
+/* Bilder im Grid */
 .gallery-grid a {
   display: block;
   width: 100%;
@@ -25,23 +26,33 @@
   transform: scale(1.03);
 }
 
+/* Text und Abstand */
+.vlt-services__text {
+  text-align: center;
+  padding: 0 12px;
+}
 
-/* Optional: Abstand auf kleineren Screens vergrößern */
-@media (max-width: 576px) {
+.vlt-animated-block h4 {
+  text-align: center;
+}
+
+/* Responsive Anpassung für kleine Screens */
+@media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .vlt-animated-block h4 {
+    font-size: 1.2rem;
   }
 
   .vlt-services__text {
     font-size: 0.95rem;
   }
-
-  .vlt-animated-block h4 {
-    text-align: center;
-    font-size: 1.3rem;
-  }
 }
+
 
 
 .vlt-navbar .vlt-navbar-logo img.white {
