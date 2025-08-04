@@ -2227,7 +2227,7 @@ body .pp-scrollable
 .vlt-btn {
   background-color: transparent;
   border: 1px solid #000;
-  color: #000;
+  color: #5c5c5c;
   padding: 10px 20px;
   border-radius: 4px;
   font-weight: 500;
@@ -2291,7 +2291,7 @@ body .pp-scrollable
 /* BUTTON PRIMARY (Minimal look) */
 .vlt-btn--primary {
   background-color: transparent;
-  color: #000;
+  color: #5c5c5c;
   border: 1px solid #000;
 }
 
