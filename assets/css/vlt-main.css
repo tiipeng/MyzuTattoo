@@ -1776,8 +1776,8 @@ select:focus::-webkit-input-placeholder
     display:         flex;
             flex-direction: column;
 
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 4.0rem;
+    height: 4.0rem;
 
     letter-spacing: -.01em;
 
