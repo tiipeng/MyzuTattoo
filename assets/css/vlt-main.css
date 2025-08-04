@@ -3145,3 +3145,26 @@ body .pp-scrollable
         -ms-transform: scale(1.2);
             transform: scale(1.2);
 }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid a {
+  display: block;
+  width: 100%;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
