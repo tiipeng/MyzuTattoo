@@ -3,56 +3,59 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'php/PHPMailer-5.2.28/src/Exception.php';
-require 'php/PHPMailer-5.2.28/src/PHPMailer.php';
-require 'php/PHPMailer-5.2.28/src/SMTP.php';
+require 'PHPMailer-5.2.28/src/Exception.php';
+require 'PHPMailer-5.2.28/src/PHPMailer.php';
+require 'PHPMailer-5.2.28/src/SMTP.php';
 
 $mail = new PHPMailer(true);
-$mail_subject = 'Subject';
-$mail_to_email = '***@gmail.com'; // your email
-$mail_to_name = 'Webmaster';
+
+// Zieladresse (also deine GMX-Adresse)
+$mail_to_email = 'myzu@gmx.net';
+$mail_to_name = 'Myzu Tattoo Booking';
+
+// Login-Daten für GMX SMTP
+$gmx_email = 'myzu@gmx.net';
+$gmx_passwort = ''; // Ggf. App-Passwort, falls 2FA aktiv
 
 try {
+    // Formulardaten auslesen
+    $mail_from_name = $_POST['name'] ?? '';
+    $mail_from_email = $_POST['email'] ?? '';
+    $mail_category = $_POST['category'] ?? '';
+    $mail_budget = $_POST['budget'] ?? '';
+    $mail_message = $_POST['message'] ?? '';
 
-	$mail_from_name = isset( $_POST['name'] ) ? $_POST['name'] : '';
-	$mail_from_email = isset( $_POST['email'] ) ? $_POST['email'] : '';
-	$mail_category = isset( $_POST['category'] ) ? $_POST['category'] : '';
-	$mail_budget = isset( $_POST['budget'] ) ? $_POST['budget'] : '';
-	$mail_message = isset( $_POST['message'] ) ? $_POST['message'] : '';
+    // SMTP Settings
+    $mail->isSMTP();
+    $mail->Host = 'mail.gmx.net';
+    $mail->SMTPAuth = true;
+    $mail->Username = $gmx_email;
+    $mail->Password = $gmx_passwort;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port = 465;
 
-	// Server settings
-	$mail->isSMTP(); // Send using SMTP
-	$mail->Host = 'smtp.***.com'; // Set the SMTP server to send through
-	$mail->SMTPAuth = true; // Enable SMTP authentication
-	$mail->Username = '***'; // SMTP username
-	$mail->Password = '***'; // SMTP password
-	$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-	$mail->Port = 465; // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+    // Absender & Empfänger
+    $mail->setFrom($gmx_email, 'Tattoo Anfrage über Website');
+    $mail->addAddress($mail_to_email, $mail_to_name);
 
-	$mail->setFrom($mail_to_email, $mail_to_name); // Your email
-	$mail->addAddress($mail_from_email, $mail_from_name); // Add a recipient
+    // E-Mail Inhalt
+    $mail->isHTML(true);
+    $mail->Subject = 'Neue Tattoo-Anfrage über das Kontaktformular';
+    $mail->Body = "
+        <strong>Name:</strong> {$mail_from_name}<br>
+        <strong>Email:</strong> {$mail_from_email}<br>
+        <strong>Category:</strong> {$mail_category}<br>
+        <strong>Budget:</strong> {$mail_budget}<br>
+        <strong>Message:</strong><br>
+        <pre>{$mail_message}</pre>
+    ";
 
-	// for($ct=0; $ct<count($_FILES['file_attach']['tmp_name']); $ct++) {
-	// 	$mail->AddAttachment($_FILES['file_attach']['tmp_name'][$ct], $_FILES['file_attach']['name'][$ct]);
-	// }
+    $mail->send();
 
-	// Content
-	$mail->isHTML(true); // Set email format to HTML
-
-	$mail->Subject = $mail_subject;
-	$mail->Body = '
-		<strong>Name:</strong> ' . $mail_from_name . '<br>
-		<strong>Email:</strong> ' . $mail_from_email . '<br>
-		<strong>Category:</strong> ' . $mail_category . '<br>
-		<strong>Budget:</strong> ' . $mail_budget . '<br>
-		<strong>Message:</strong> ' . $mail_message;
-
-	$mail->Send();
-
-	echo 'Message has been sent';
+    // Erfolgsmeldung (z. B. Pop-up + Weiterleitung)
+    echo '<script>alert("Deine Anfrage wurde erfolgreich gesendet!"); window.location.href="../index.html#Contact";</script>';
 
 } catch (Exception $e) {
-
-	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-
+    // Fehlermeldung
+    echo '<script>alert("Fehler beim Versenden: ' . $mail->ErrorInfo . '"); history.back();</script>';
 }
