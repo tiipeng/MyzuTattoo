@@ -31,8 +31,6 @@
   padding: 0 12px;
 }
 
-.vlt-animated-block h4 {
-}
 
 /* Responsive Anpassung für kleine Screens */
 @media (max-width: 768px) {
@@ -45,10 +43,6 @@
   .gallery-grid img {
     height: 120px; /* feste Höhe für kompakteres Layout */
     object-fit: cover;
-  }
-
-  .vlt-animated-block h4 {
-    font-size: 1.2rem;
   }
 
   .vlt-services__text {
