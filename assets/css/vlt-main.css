@@ -3186,8 +3186,13 @@ body .pp-scrollable
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
     padding: 0 10px;
+  }
+
+  .gallery-grid img {
+    height: 120px; /* feste Höhe für kompakteres Layout */
+    object-fit: cover;
   }
 
   .vlt-animated-block h4 {
