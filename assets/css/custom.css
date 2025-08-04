@@ -28,7 +28,8 @@
 
 /* Text und Abstand */
 .vlt-services__text {
-  padding: 0 12px;
+  padding: 0 0px;
+  text-align: justify;
 }
 
 
