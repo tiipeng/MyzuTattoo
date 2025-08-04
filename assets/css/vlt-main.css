@@ -1782,7 +1782,7 @@ select:focus::-webkit-input-placeholder
     letter-spacing: -.01em;
 
     color: #fff;
-    border-top-left-radius: 6px;
+    border-top-left-radius: 3px;
     background-color: #101010;
 
     -webkit-box-align: center;
