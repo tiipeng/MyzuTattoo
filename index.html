@@ -640,4 +640,29 @@
       <script src="assets/scripts/vlt-helpers.js"></script>
       <script src="assets/scripts/vlt-controllers.min.js"></script>
    </body>
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.vlt-timeline-slider .swiper-container').forEach((el) => {
+    const swiper = el.swiper;
+    if (swiper) {
+      swiper.on('slideChange', function () {
+        const current = swiper.realIndex + 1;
+        const total = swiper.slides.length;
+        const pagination = el.closest('.vlt-timeline-slider').querySelector('.pagination');
+        if (pagination) {
+          pagination.innerHTML = `<span class="current">${current}</span><span class="sep">/</span><span class="total">${total}</span>`;
+        }
+      });
+
+      // Initial pagination render
+      const pagination = el.closest('.vlt-timeline-slider').querySelector('.pagination');
+      if (pagination) {
+        const current = swiper.realIndex + 1;
+        const total = swiper.slides.length;
+        pagination.innerHTML = `<span class="current">${current}</span><span class="sep">/</span><span class="total">${total}</span>`;
+      }
+    }
+  });
+});
+</script>
 </html>
