@@ -738,41 +738,34 @@
 			if (typeof Swiper == 'undefined') {
 				return;
 			}
-			var el = $('.vlt-timeline-slider .swiper-container');
-			el.each(function () {
-				var $this = $(this);
-				$this.find('.swiper-wrapper > *').wrap('<div class="swiper-slide">');
-				new Swiper(this, {
-					on: {
-  					slideChange: function () {
-    						var current = this.realIndex + 1;
-						var total = this.slides.length;
-    						// Pagination updaten
-   					 	var pagination = this.el.closest('.vlt-timeline-slider').querySelector('.pagination');
-    						if (pagination) {
-   					   		pagination.innerText = current + ' / ' + total;
-  						  		},
-					speed: 1000,
-					spaceBetween: 0,
-					grabCursor: true,
-					slidesPerView: 1,
-					navigation: {
-						nextEl: $('.vlt-timeline-slider-controls .next'),
-						prevEl: $('.vlt-timeline-slider-controls .prev'),
-					},
-					pagination: {
-						el: $('.vlt-timeline-slider-controls .pagination'),
-						clickable: false,
-						type: 'fraction',
-						renderFraction: function (currentClass, totalClass) {
-							return '<span class="' + currentClass + '"></span>' +
-								'<span class="sep">/</span>' +
-								'<span class="' + totalClass + '"></span>';
-						}
-					
-					}
-				});
-			});
+$('.vlt-timeline-slider').each(function () {
+	var $section = $(this);
+	var $container = $section.find('.swiper-container');
+
+	$container.find('.swiper-wrapper > *').wrap('<div class="swiper-slide">');
+
+	new Swiper($container[0], {
+		speed: 1000,
+		spaceBetween: 0,
+		grabCursor: true,
+		slidesPerView: 1,
+		navigation: {
+			nextEl: $section.find('.vlt-timeline-slider-controls .next')[0],
+			prevEl: $section.find('.vlt-timeline-slider-controls .prev')[0],
+		},
+		pagination: {
+			el: $section.find('.vlt-timeline-slider-controls .pagination')[0],
+			clickable: false,
+			type: 'fraction',
+			renderFraction: function (currentClass, totalClass) {
+				return '<span class="' + currentClass + '"></span>' +
+					'<span class="sep">/</span>' +
+					'<span class="' + totalClass + '"></span>';
+			}
+		}
+	});
+});
+
 
 		}
 	};
