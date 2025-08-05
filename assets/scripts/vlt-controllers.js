@@ -743,6 +743,15 @@
 				var $this = $(this);
 				$this.find('.swiper-wrapper > *').wrap('<div class="swiper-slide">');
 				new Swiper(this, {
+					on: {
+  					slideChange: function () {
+    						var current = this.realIndex + 1;
+						var total = this.slides.length;
+    						// Pagination updaten
+   					 	var pagination = this.el.closest('.vlt-timeline-slider').querySelector('.pagination');
+    						if (pagination) {
+   					   		pagination.innerText = current + ' / ' + total;
+  						  		},
 					speed: 1000,
 					spaceBetween: 0,
 					grabCursor: true,
@@ -760,6 +769,7 @@
 								'<span class="sep">/</span>' +
 								'<span class="' + totalClass + '"></span>';
 						}
+					
 					}
 				});
 			});
